@@ -16,4 +16,9 @@ class StudentsController extends Controller
         $students = auth()->user()->students;
         return view('students.index', compact('students'));
     }
+
+    public function create()
+    {
+        return view('students.create');
+    }
 }
