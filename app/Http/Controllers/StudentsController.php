@@ -21,4 +21,20 @@ class StudentsController extends Controller
     {
         return view('students.create');
     }
+
+    public function store()
+    {
+        $attributes = $this->validateStudent();
+        dd($attributes);    
+    }
+
+    public function validateStudent()
+    {
+        return request()->validate([
+            'name' => ['required'],
+            'grade' => ['required'],
+            'parent_email' => ['required'],
+            'bus_number' => ['required']
+        ]);
+    }
 }
