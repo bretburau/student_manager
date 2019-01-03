@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Student;
 
 class StudentsController extends Controller
 {
@@ -24,8 +25,18 @@ class StudentsController extends Controller
 
     public function store()
     {
+        $id = auth()->id();
         $attributes = $this->validateStudent();
-        dd($attributes);    
+        $attributes['teacher_id'] =$id;
+        // dd($attributes);
+        $attributes['bus_number'] == 0 ? $attributes['riding_bus'] = true : $attributes['riding_bus'] = false;
+        Student::create($attributes);
+        return redirect("/students/$id");
+    }
+
+    public function show(Student $student)
+    {
+        dd($student);
     }
 
     public function validateStudent()
