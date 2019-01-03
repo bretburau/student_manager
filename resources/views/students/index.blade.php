@@ -2,9 +2,9 @@
 
 @section('content')
     <h1>Students</h1>
-    <ul>
+    <ul class="list-group">
     @foreach ($students as $student)
-        <li>{{$student->name }}</li>
+        <a href="/students/{{$student->id}}"><li class="list-group-item">{{$student->name }}</li></a>
     @endforeach
     </ul>
 @endsection
