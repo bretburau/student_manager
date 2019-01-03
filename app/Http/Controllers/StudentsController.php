@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+use App\User;
 
 class StudentsController extends Controller
 {
@@ -36,7 +37,8 @@ class StudentsController extends Controller
 
     public function show(Student $student)
     {
-        dd($student);
+        $teacher = User::find($student->teacher_id);
+        return view("students.show", compact('student', 'teacher'));
     }
 
     public function validateStudent()
