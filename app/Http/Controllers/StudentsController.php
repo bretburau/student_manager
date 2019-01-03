@@ -40,6 +40,11 @@ class StudentsController extends Controller
         return view("students.show", compact('student', 'teacher'));
     }
 
+    public function edit(Student $student)
+    {
+        return view('students.edit');
+    }
+
     public function validateStudent()
     {
         return request()->validate([

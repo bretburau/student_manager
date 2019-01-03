@@ -13,6 +13,7 @@
         @endif
         <li class="list-group-item">Parent contact: {{$student->parent_email}}</li>
     </ul>
+    <a class="btn btn-primary" href="/students/{{$student->id}}/edit">Edit</a>
 </div>
 
 @endsection
