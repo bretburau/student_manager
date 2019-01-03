@@ -45,6 +45,12 @@ class StudentsController extends Controller
         return view('students.edit', compact('student'));
     }
 
+    public function update(Student $student)
+    {
+        $student->update($this->validateStudent());
+        return redirect('/students');
+    }
+
     public function validateStudent()
     {
         return request()->validate([
