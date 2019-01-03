@@ -3,14 +3,15 @@
 @section('content')
 <h2>Student: {{$student->name}}</h2>
 <div class="container">
-    <ul>
-        <li>Teacher: {{$teacher->name}}</li>
-        <li>Grade: {{$student->grade}}</li>
+    <ul class="list-group">
+        <li class="list-group-item">Teacher: {{$teacher->name}}</li>
+        <li class="list-group-item">Grade: {{$student->grade}}</li>
         @if (!!$student->riding_bus)
-            <li>Bus number: {{$student->bus_number}}</li>
+            <li class="list-group-item">Bus number: {{$student->bus_number}}</li>
         @else
-            <li>Parent pickup</li>
+            <li class="list-group-item">Parent pickup</li>
         @endif
+        <li class="list-group-item">Parent contact: {{$student->parent_email}}</li>
     </ul>
 </div>
 
