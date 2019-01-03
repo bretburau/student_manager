@@ -42,7 +42,7 @@ class StudentsController extends Controller
 
     public function edit(Student $student)
     {
-        return view('students.edit');
+        return view('students.edit', compact('student'));
     }
 
     public function validateStudent()
