@@ -50,6 +50,15 @@
             <br />
             <br />
             <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        </div>
     </form>
+
+    <div class="form-group container">
+        <form method="POST" action="/students/{{ $student->id }}" >
+            @csrf
+            @method('delete')
+            <br/>
+            <button class="btn btn-danger">Delete Student</button>
+        </form>
+    </div>
 @endsection
