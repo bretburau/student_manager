@@ -51,6 +51,12 @@ class StudentsController extends Controller
         return redirect('/students');
     }
 
+    public function destroy(Student $student)
+    {
+        $student->delete();
+        return redirect('/students');
+    }
+
     public function validateStudent()
     {
         return request()->validate([
