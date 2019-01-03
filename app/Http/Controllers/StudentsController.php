@@ -30,8 +30,8 @@ class StudentsController extends Controller
         $attributes = $this->validateStudent();
         $attributes['teacher_id'] =$id;
         $attributes['bus_number'] == 0 ? $attributes['riding_bus'] = false : $attributes['riding_bus'] = true;
-        Student::create($attributes);
-        return redirect("/students/$id");
+        $student = Student::create($attributes);
+        return redirect("/students/$student->id");
     }
 
     public function show(Student $student)
