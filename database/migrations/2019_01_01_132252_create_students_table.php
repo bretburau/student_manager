@@ -19,7 +19,7 @@ class CreateStudentsTable extends Migration
             $table->string('name');
             $table->integer('grade');
             $table->string('parent_email');
-            $table->boolean('riding_bus');
+            $table->boolean('riding_bus')->default(true);
             $table->integer('bus_number');
             $table->timestamps();
         });
