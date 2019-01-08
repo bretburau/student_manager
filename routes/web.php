@@ -23,3 +23,8 @@ Route::get('/home', function () { //Needs to go away, '/home' built into make:au
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/students', 'StudentsController');
+
+use App\Student;
+Route::get('/index', function() {
+    return Student::all();
+});
