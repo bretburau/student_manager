@@ -11,6 +11,5 @@
         @endforeach
         </ul>
     </div>
-    <example-component></example-component>
 
 @endsection
