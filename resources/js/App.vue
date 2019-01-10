@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <ExampleComponent></ExampleComponent>
-    {{ students }}
   </div>
 </template>
 

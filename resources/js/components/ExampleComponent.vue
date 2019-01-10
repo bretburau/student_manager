@@ -3,7 +3,6 @@
         <h1>Students</h1>
         <a href="/students/create" class="btn btn-primary">Add Student</a>
         <br /><br />
-        {{ students }}
         <ul class="list-group">
             <li v-for="student in students" :key="student.id">{{student.name}}</li>
         </ul>
