@@ -1,24 +1,14 @@
 <template>
   <div id="app">
-    <ExampleComponent></ExampleComponent>
+    <StudentList>good god</StudentList>
   </div>
 </template>
 
 <script>
-import ExampleComponent from './components/ExampleComponent.vue'
+import StudentList from './components/StudentList.vue'
 export default {
   name: 'app',
-  components: { ExampleComponent },
-  data () {
-    return {
-      students: []
-    }
-  },
-
-  mounted() {
-    fetch('http://127.0.0.1:8000/students')
-      .then(res => console.log(res))
-  }
+  components: { StudentList }
 }
 </script>
 

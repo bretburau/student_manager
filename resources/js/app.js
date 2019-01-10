@@ -12,7 +12,7 @@
  * Vue components. It will recursively scan this directory for the Vue
  * components and automatically register them with their "basename".
  *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+ * Eg. ./components/StudentList.vue -> <example-component></example-component>
  */
 
 // const files = require.context('./', true, /\.vue$/i)
@@ -25,15 +25,13 @@
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 require('./bootstrap');
-// window.Vue = require('vue');
 import Vue from 'vue'
-import ExampleComponent from './components/ExampleComponent.vue';
-// Vue.component('ExampleComponent', require('./components/ExampleComponent.vue').default);
+import StudentList from './components/StudentList.vue';
 import App from './App.vue'
 
 const app = new Vue({
     el: '#app',
     
-    components: {ExampleComponent},
+    components: {StudentList},
     render: h => h(App)
 });
