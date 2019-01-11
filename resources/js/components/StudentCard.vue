@@ -6,7 +6,10 @@
             <p class="card-text" v-if="student.bus_number === 0">Parent pick-up</p>
             <p class="card-text" v-else>Bus number: {{student.bus_number }}</p>
             <p class="card-text">Grade: {{student.grade}}</p>
-            <router-link to="/addstudent" class="btn btn-primary">Edit</router-link>
+            <div class="flex">
+                <router-link to="/addstudent" class="btn btn-primary">Edit</router-link>
+                <router-link to="/delete" class="btn btn-primary">Delete</router-link>
+            </div>
         </div>
     </div>
 </template>
@@ -20,5 +23,9 @@
 <style scoped>
     .card {
         margin: 1rem;
+    }
+    .flex {
+        display: flex;
+        justify-content: space-evenly;
     }
 </style>

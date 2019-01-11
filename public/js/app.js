@@ -1770,11 +1770,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'app',
@@ -1839,6 +1834,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['student']
 });
@@ -1873,7 +1871,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -6207,7 +6204,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.card[data-v-e7cc2d60] {\n    margin: 1rem;\n}\n", ""]);
+exports.push([module.i, "\n.card[data-v-e7cc2d60] {\n    margin: 1rem;\n}\n.flex[data-v-e7cc2d60] {\n    display: flex;\n    justify-content: space-evenly;\n}\n", ""]);
 
 // exports
 
@@ -6226,7 +6223,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.flex-container[data-v-e13266ac] {\n    display: flex;\n    flex-wrap: wrap;\n}\n", ""]);
+exports.push([module.i, "\n.container[data-v-e13266ac] {\n    padding-top: 1em;\n}\n.flex-container[data-v-e13266ac] {\n    display: flex;\n    flex-wrap: wrap;\n}\n", ""]);
 
 // exports
 
@@ -37507,30 +37504,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "app" } },
-    [
-      _c(
-        "nav",
-        [
-          _c("router-link", { attrs: { to: "/" } }, [_vm._v("Home")]),
-          _vm._v(" "),
-          _c("router-link", { attrs: { to: "/notification" } }, [
-            _vm._v("Notification")
-          ]),
-          _vm._v(" "),
-          _c("router-link", { attrs: { to: "/addstudent" } }, [
-            _vm._v("Add Student")
-          ])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("router-view")
-    ],
-    1
-  )
+  return _c("div", [_c("router-view")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -37581,36 +37555,44 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
-    _c(
-      "div",
-      { staticClass: "card-body" },
-      [
-        _c("h5", { staticClass: "card-title" }, [
-          _vm._v(_vm._s(_vm.student.name))
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "card-text" }, [
-          _vm._v("Parent contact: " + _vm._s(_vm.student.parent_email))
-        ]),
-        _vm._v(" "),
-        _vm.student.bus_number === 0
-          ? _c("p", { staticClass: "card-text" }, [_vm._v("Parent pick-up")])
-          : _c("p", { staticClass: "card-text" }, [
-              _vm._v("Bus number: " + _vm._s(_vm.student.bus_number))
-            ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "card-text" }, [
-          _vm._v("Grade: " + _vm._s(_vm.student.grade))
-        ]),
-        _vm._v(" "),
-        _c(
-          "router-link",
-          { staticClass: "btn btn-primary", attrs: { to: "/addstudent" } },
-          [_vm._v("Edit")]
-        )
-      ],
-      1
-    )
+    _c("div", { staticClass: "card-body" }, [
+      _c("h5", { staticClass: "card-title" }, [
+        _vm._v(_vm._s(_vm.student.name))
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "card-text" }, [
+        _vm._v("Parent contact: " + _vm._s(_vm.student.parent_email))
+      ]),
+      _vm._v(" "),
+      _vm.student.bus_number === 0
+        ? _c("p", { staticClass: "card-text" }, [_vm._v("Parent pick-up")])
+        : _c("p", { staticClass: "card-text" }, [
+            _vm._v("Bus number: " + _vm._s(_vm.student.bus_number))
+          ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "card-text" }, [
+        _vm._v("Grade: " + _vm._s(_vm.student.grade))
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "flex" },
+        [
+          _c(
+            "router-link",
+            { staticClass: "btn btn-primary", attrs: { to: "/addstudent" } },
+            [_vm._v("Edit")]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            { staticClass: "btn btn-primary", attrs: { to: "/delete" } },
+            [_vm._v("Delete")]
+          )
+        ],
+        1
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -37670,11 +37652,13 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("h1", [_vm._v("Students")]),
+      _c("h3", [_vm._v("Students")]),
       _vm._v(" "),
-      _c("router-link", { attrs: { to: "/addstudent" } }, [
-        _vm._v("Add Student")
-      ]),
+      _c(
+        "router-link",
+        { staticClass: "btn btn-primary", attrs: { to: "/addstudent" } },
+        [_vm._v("Add Student")]
+      ),
       _vm._v(" "),
       _c("br"),
       _c("br"),

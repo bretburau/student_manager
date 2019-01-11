@@ -1,8 +1,7 @@
 <template>
     <div class="container">
-        <h1>Students</h1>
-        <router-link to='/addstudent'>Add Student</router-link>
-        <!-- <a href="/students/create" class="btn btn-primary">Add Student</a> -->
+        <h3>Students</h3>
+        <router-link class='btn btn-primary' to='/addstudent'>Add Student</router-link>
         <br /><br />
         <div class="flex-container">
             <StudentCard 
@@ -45,6 +44,9 @@
 </script>
 
 <style scoped>
+    .container {
+        padding-top: 1em;
+    }
     .flex-container {
         display: flex;
         flex-wrap: wrap;

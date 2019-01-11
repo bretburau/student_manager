@@ -1,26 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>Student Tracker</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+<template>
+    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         Student Tracker
@@ -38,6 +17,9 @@
     
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <router-link class='nav-link' to='/addstudent'>Add</router-link>
+                                </li>
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item">
@@ -71,8 +53,14 @@
                     </div>
                 </div>
             </nav>
-    <div id='app'>
+</template>
 
-    </div>
-</body>
-</html>
+<script>
+    export default {
+        
+    }
+</script>
+
+<style scoped>
+
+</style>
