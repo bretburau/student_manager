@@ -3,15 +3,17 @@
         <h1>Students</h1>
         <a href="/students/create" class="btn btn-primary">Add Student</a>
         <br /><br />
-        <ul class="list-group">
-            <li v-for="student in students" :key="student.id">{{student.name}}</li>
-        </ul>
+        <StudentCard 
+            v-for="student in students" 
+            :key="student.id"
+            v-bind:student="student">
+        </StudentCard>
     </div>
 </template>
 
 <script>
     export default {
-
+        components: { },
         data() {
             return {
                 students: []
@@ -21,6 +23,7 @@
         mounted() {
             this.fetchStudents();
         },
+
 
         methods: {
             fetchStudents() {

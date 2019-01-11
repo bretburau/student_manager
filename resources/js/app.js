@@ -27,11 +27,15 @@
 require('./bootstrap');
 import Vue from 'vue'
 import StudentList from './components/StudentList.vue';
+import Notification from './components/Notification.vue'
+import StudentCard from './components/StudentCard.vue'
 import App from './App.vue'
+
+Vue.component('StudentCard', StudentCard)
+
 
 const app = new Vue({
     el: '#app',
     
-    components: {StudentList},
     render: h => h(App)
 });
