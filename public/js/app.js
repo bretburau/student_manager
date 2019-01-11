@@ -1834,6 +1834,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['student']
 });
@@ -37444,13 +37447,21 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text" }, [
-        _vm._v(
-          "Some quick example text to build on the card title and make up the bulk of the card's content."
-        )
+        _vm._v("Parent contact: " + _vm._s(_vm.student.parent_email))
+      ]),
+      _vm._v(" "),
+      _vm.student.bus_number === 0
+        ? _c("p", { staticClass: "card-text" }, [_vm._v("Parent pick-up")])
+        : _c("p", { staticClass: "card-text" }, [
+            _vm._v("Bus number: " + _vm._s(_vm.student.bus_number))
+          ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "card-text" }, [
+        _vm._v("Grade: " + _vm._s(_vm.student.grade))
       ]),
       _vm._v(" "),
       _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
-        _vm._v("Go somewhere")
+        _vm._v("Edit")
       ])
     ])
   ])
