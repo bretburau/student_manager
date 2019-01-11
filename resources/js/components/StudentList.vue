@@ -3,11 +3,13 @@
         <h1>Students</h1>
         <a href="/students/create" class="btn btn-primary">Add Student</a>
         <br /><br />
-        <StudentCard 
-            v-for="student in students" 
-            :key="student.id"
-            v-bind:student="student">
-        </StudentCard>
+        <div class="flex-container">
+            <StudentCard 
+                v-for="student in students" 
+                :key="student.id"
+                v-bind:student="student">
+            </StudentCard>
+        </div>
     </div>
 </template>
 
@@ -28,7 +30,7 @@
         methods: {
             fetchStudents() {
                 console.log('fetch students()', this.students)
-                axios.get('/index').then((response) => {
+                axios.get('/api/students').then((response) => {
                     console.log(this.students)
                     this.students = response.data
                     console.log(this.students)
@@ -40,3 +42,10 @@
 
     }
 </script>
+
+<style scoped>
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+</style>

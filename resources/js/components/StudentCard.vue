@@ -18,5 +18,7 @@
 </script>
 
 <style scoped>
-
+    .card {
+        margin: 1rem;
+    }
 </style>

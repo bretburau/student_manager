@@ -25,6 +25,6 @@ Route::get('/home', function () { //Needs to go away, '/home' built into make:au
 Route::resource('/students', 'StudentsController');
 
 use App\Student;
-Route::get('/index', function() {
+Route::get('/api/students', function() {
     return Student::all();
 });

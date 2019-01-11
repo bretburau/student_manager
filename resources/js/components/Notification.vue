@@ -14,10 +14,7 @@
 
         mounted() {
             axios.get('/index').then(res => {
-                console.log(this.message)
-                console.log(res)
                 this.message = res.data[0]; 
-                console.log(this.message)
                 })
         }
     }
