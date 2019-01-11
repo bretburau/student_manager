@@ -1,7 +1,8 @@
 import VueRouter from 'vue-router';
 import AddStudent from './views/AddStudent.vue'
 import StudentList from './views/StudentList.vue'
-import Notification from './components/Notification.vue'
+import DeleteStudent from './views/DeleteStudent.vue'
+import EditStudent from './views/EditStudent.vue'
 
 let routes = [
     {
@@ -13,8 +14,12 @@ let routes = [
             component: StudentList
     },
     {
-        path: '/notification',
-        component: Notification
+        path: '/student/delete',
+        component: DeleteStudent
+    },
+    {
+        path: '/student/edit',
+        component: EditStudent
     }
 ]
 

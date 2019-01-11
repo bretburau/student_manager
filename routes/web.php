@@ -26,6 +26,9 @@ Auth::routes();
 Route::view('/', 'layouts.master');
 
 use App\Student;
+
 Route::get('/api/students', function() {
     return Student::all();
 });
+
+Route::post('/api/students/create', 'StudentsController@store');

@@ -7,8 +7,8 @@
             <p class="card-text" v-else>Bus number: {{student.bus_number }}</p>
             <p class="card-text">Grade: {{student.grade}}</p>
             <div class="flex">
-                <router-link to="/addstudent" class="btn btn-primary">Edit</router-link>
-                <router-link to="/delete" class="btn btn-primary">Delete</router-link>
+                <router-link to="/student/edit" class="btn btn-primary">Edit</router-link>
+                <router-link to="/student/delete" class="btn btn-primary">Delete</router-link>
             </div>
         </div>
     </div>
