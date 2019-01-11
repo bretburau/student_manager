@@ -26,16 +26,17 @@
  */
 require('./bootstrap');
 import Vue from 'vue'
-import StudentList from './components/StudentList.vue';
-import Notification from './components/Notification.vue'
 import StudentCard from './components/StudentCard.vue'
 import App from './App.vue'
+import router from './routes'
+import VueRouter from 'vue-router';
 
+Vue.use(VueRouter)
 Vue.component('StudentCard', StudentCard)
 
-
+console.log(router)
 const app = new Vue({
     el: '#app',
-    
+    router,
     render: h => h(App)
 });

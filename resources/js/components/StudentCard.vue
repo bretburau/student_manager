@@ -6,7 +6,7 @@
             <p class="card-text" v-if="student.bus_number === 0">Parent pick-up</p>
             <p class="card-text" v-else>Bus number: {{student.bus_number }}</p>
             <p class="card-text">Grade: {{student.grade}}</p>
-            <a href="#" class="btn btn-primary">Edit</a>
+            <router-link to="/addstudent" class="btn btn-primary">Edit</router-link>
         </div>
     </div>
 </template>

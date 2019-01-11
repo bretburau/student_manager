@@ -11,18 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect('/students');
-});
+// Route::get('/', function () {
+//     return redirect('/students');
+// });
 
 Auth::routes();
 
-Route::get('/home', function () { //Needs to go away, '/home' built into make:auth
-    return redirect('/students');
-});
-// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', function () { //Needs to go away, '/home' built into make:auth
+//     return redirect('/students');
+// });
+// // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/students', 'StudentsController');
+// Route::resource('/students', 'StudentsController');
+Route::view('/', 'layouts.master');
 
 use App\Student;
 Route::get('/api/students', function() {

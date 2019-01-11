@@ -1,7 +1,8 @@
 <template>
     <div class="container">
         <h1>Students</h1>
-        <a href="/students/create" class="btn btn-primary">Add Student</a>
+        <router-link to='/addstudent'>Add Student</router-link>
+        <!-- <a href="/students/create" class="btn btn-primary">Add Student</a> -->
         <br /><br />
         <div class="flex-container">
             <StudentCard 

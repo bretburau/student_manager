@@ -1,11 +1,16 @@
 <template>
   <div id="app">
-    <StudentList>good god</StudentList>
+    <nav>
+      <router-link to="/">Home</router-link>
+      <router-link to='/notification'>Notification</router-link>
+      <router-link to='/addstudent'>Add Student</router-link>
+    </nav>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import StudentList from './components/StudentList.vue'
+import StudentList from './views/StudentList.vue'
 export default {
   name: 'app',
   components: { StudentList }
