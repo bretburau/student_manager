@@ -8,6 +8,11 @@
                     <p v-else>Theres been an error.</p>
                 </div>
                 <form autocomplete="off" @submit.prevent="register" v-if="!success" method="post">
+                    <div class="form-group" v-bind:class="{ 'has-error': has_error && errors.name }">
+                        <label for="name">Name</label>
+                        <input type="name" id="name" class="form-control" v-model="name">
+                        <span class="help-block" v-if="has_error && errors.email">{{ errors.email }}</span>
+                    </div>
                     <div class="form-group" v-bind:class="{ 'has-error': has_error && errors.email }">
                         <label for="email">E-mail</label>
                         <input type="email" id="email" class="form-control" placeholder="user@example.com" v-model="email">
@@ -22,7 +27,7 @@
                         <label for="password_confirmation">Confirm Password</label>
                         <input type="password" id="password_confirmation" class="form-control" v-model="password_confirmation">
                     </div>
-                    <a type="submit" href='#' class="btn btn-primary">Submit</a>
+                    <button type="submit" clbuttonss="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
@@ -47,6 +52,7 @@
         var app = this
         this.$auth.register({
           data: {
+            name: app.name,
             email: app.email,
             password: app.password,
             password_confirmation: app.password_confirmation
