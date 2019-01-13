@@ -15,7 +15,7 @@
 //     return redirect('/students');
 // });
 
-Auth::routes();
+// Auth::routes();
 
 // Route::get('/home', function () { //Needs to go away, '/home' built into make:auth
 //     return redirect('/students');
