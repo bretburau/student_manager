@@ -43,7 +43,7 @@ Vue.component('StudentCard', StudentCard)
 
 // Set Vue authentication
 Vue.use(VueAxios, axios)
-// axios.defaults.baseURL = `${process.env.MIX_APP_URL}/api` //didn't work
+// axios.defaults.baseURL = `${process.env.MIX_APP_URL}/api` //didn't work resolved undefined
 Vue.use(VueAuth, auth)
 
 console.log(router)

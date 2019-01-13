@@ -34,6 +34,7 @@
     </div>
 </template>
 <script>
+  // todo add better form validation/errors
   export default {
     data() {
       return {
