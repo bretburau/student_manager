@@ -1,5 +1,6 @@
 <template>
   <div>
+    <router-link to='/register'>Register</router-link>
     <router-view></router-view>
   </div>
 </template>
