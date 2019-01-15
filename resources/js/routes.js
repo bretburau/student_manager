@@ -5,6 +5,7 @@ import DeleteStudent from './views/DeleteStudent.vue'
 import EditStudent from './views/EditStudent.vue'
 import Register from './views/Register.vue'
 import Login from './views/Login.vue'
+import LoggedOut from './views/LoggedOut.vue'
 
 let routes = [
     {
@@ -19,8 +20,8 @@ let routes = [
         }
     },
     {
-        path: '/dashboard',
-        component: StudentList
+        path: '/loggedout',
+        component: LoggedOut
     },
     {
         path: '/student/delete',

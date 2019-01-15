@@ -25,7 +25,7 @@
                 </li>
                 <!--LOGOUT-->
                 <li class="nav-item" v-if="$auth.check()">
-                    <a href="#" class="nav-link"  @click.prevent="$auth.logout()">Logout</a>
+                    <a href="#" class="nav-link"  @click.prevent="logout()">Logout</a>
                 </li>
             </ul>
         </div>
@@ -51,7 +51,7 @@
           user: [
             {
               name: 'Dashboard',
-              path: '/'
+              path: ''
             }
           ],
           // LOGGED ADMIN
@@ -64,8 +64,11 @@
         }
       }
     },
-    mounted() {
-      //
+    methods: {
+      logout() {
+          this.$auth.logout()
+          this.$router.push('/loggedout') //todo why does this re-render?
+      }
     }
   }
 </script>
