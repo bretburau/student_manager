@@ -2951,8 +2951,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3022,7 +3020,7 @@ __webpack_require__.r(__webpack_exports__);
         // LOGGED USER
         user: [{
           name: 'Dashboard',
-          path: 'dashboard'
+          path: '/'
         }],
         // LOGGED ADMIN
         admin: [{
@@ -3235,10 +3233,8 @@ __webpack_require__.r(__webpack_exports__);
         },
         success: function success() {
           // handle redirection
-          var redirectTo = redirect ? redirect.from.name : this.$auth.user().role === 2 ? 'admin.dashboard' : 'dashboard';
-          this.$router.push({
-            name: redirectTo
-          });
+          // const redirectTo = redirect ? redirect.from.name : this.$auth.user().role === 2 ? 'admin.dashboard' : '/'
+          this.$router.push('/');
         },
         error: function error() {
           app.has_error = true;
@@ -40207,19 +40203,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("router-link", { attrs: { to: "/register" } }, [_vm._v("Register")]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/login" } }, [_vm._v("Login")]),
-      _vm._v(" "),
-      _c("Menu"),
-      _vm._v(" "),
-      _c("router-view")
-    ],
-    1
-  )
+  return _c("div", [_c("Menu"), _vm._v(" "), _c("router-view")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -55504,6 +55488,12 @@ var routes = [{
   component: _views_AddStudent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
 }, {
   path: '/',
+  component: _views_StudentList_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+  meta: {
+    auth: true
+  }
+}, {
+  path: '/dashboard',
   component: _views_StudentList_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
   path: '/student/delete',

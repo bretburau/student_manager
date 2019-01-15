@@ -45,8 +45,8 @@
           },
           success: function() {
             // handle redirection
-            const redirectTo = redirect ? redirect.from.name : this.$auth.user().role === 2 ? 'admin.dashboard' : 'dashboard'
-            this.$router.push({name: redirectTo})
+            // const redirectTo = redirect ? redirect.from.name : this.$auth.user().role === 2 ? 'admin.dashboard' : '/'
+            this.$router.push('/')
           },
           error: function() {
             app.has_error = true

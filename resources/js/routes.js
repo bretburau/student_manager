@@ -13,7 +13,14 @@ let routes = [
     },
     {
         path: '/',
-            component: StudentList
+        component: StudentList,
+        meta: {
+            auth: true
+        }
+    },
+    {
+        path: '/dashboard',
+        component: StudentList
     },
     {
         path: '/student/delete',
