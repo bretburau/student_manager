@@ -19,6 +19,8 @@ Route::get('/api/students/{id}', function($id) {
     return Student::find($id);
 });
 
+Route::put('/api/students/{id}/update', 'StudentsController@update');
+
 Route::get('/api/students', function() {
     return Student::all();
 });

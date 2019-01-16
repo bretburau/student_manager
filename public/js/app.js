@@ -3018,10 +3018,12 @@ __webpack_require__.r(__webpack_exports__);
           path: 'login'
         }],
         // LOGGED USER
-        user: [{
-          name: 'Dashboard',
-          path: '/'
-        }],
+        // user: [
+        //   {
+        //     name: 'Dashboard',
+        //     path: '/'
+        //   }
+        // ],
         // LOGGED ADMIN
         admin: [{
           name: 'Dashboard',
@@ -3160,7 +3162,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    delete: function _delete() {
+      axios.delete("/api/students/".concat(this.$route.params.id, "/delete")).then(function (res) {
+        return console.log(res);
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -3220,6 +3231,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3228,7 +3240,8 @@ __webpack_require__.r(__webpack_exports__);
         grade: null,
         parent_email: "",
         bus_number: null,
-        teacher_id: null
+        teacher_id: null,
+        id: null
       })
     };
   },
@@ -3236,17 +3249,19 @@ __webpack_require__.r(__webpack_exports__);
     this.fetchStudent();
   },
   methods: {
+    onSubmit: function onSubmit() {
+      this.form.patch("/api/students/".concat(this.form.id, "/update")).then(this.$router.push('/'));
+    },
     fetchStudent: function fetchStudent() {
       var _this = this;
 
-      // id = this.$route.params.id
       axios.get("/api/students/".concat(this.$route.params.id)).then(function (res) {
         _this.form.name = res.data.name;
         _this.form.grade = res.data.grade;
         _this.form.parent_email = res.data.parent_email;
         _this.form.teacher_id = res.data.teacher_id;
         _this.form.bus_number = res.data.bus_number;
-        console.log(_this.name);
+        _this.form.id = res.data.id;
       });
     }
   }
@@ -40806,21 +40821,8 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("p", [_vm._v("for deleting students")])])
-  }
-]
-render._withStripped = true
+var render = function () {}
+var staticRenderFns = []
 
 
 
@@ -40843,14 +40845,14 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "container" }, [
-      _c("h3", [_vm._v("Add a Student")]),
+      _c("h3", [_vm._v("Edit Student")]),
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
       _c(
         "form",
         {
-          attrs: { method: "PATCH", action: "/api/students/edit" },
+          attrs: { method: "GET", action: "/api/students/edit" },
           on: {
             submit: function($event) {
               $event.preventDefault()
@@ -40859,6 +40861,10 @@ var render = function() {
           }
         },
         [
+          _c("input", {
+            attrs: { type: "hidden", name: "_method", value: "PATCH" }
+          }),
+          _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
             _c("input", {
               directives: [

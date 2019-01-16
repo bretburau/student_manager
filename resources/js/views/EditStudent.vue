@@ -1,9 +1,10 @@
 <template>
     <div>
         <div class="container">
-        <h3>Add a Student</h3>
+        <h3>Edit Student</h3>
         <hr>
-        <form method="PATCH" action="/api/students/edit" v-on:submit.prevent="onSubmit">
+        <form method="GET" action="/api/students/edit" v-on:submit.prevent="onSubmit">
+            <input type="hidden" name="_method" value="PATCH">
             <div class='form-group'>
                 <input required v-model="form.name" class='form-control' type='text' name='name' :placeholder="this.form.name">
             </div>
@@ -54,7 +55,8 @@
                 grade: null,
                 parent_email: "",
                 bus_number: null,
-                teacher_id: null
+                teacher_id: null,
+                id: null
             })
         }
     },
@@ -64,8 +66,12 @@
     },
 
     methods: {
+         onSubmit() {
+                this.form.patch(`/api/students/${this.form.id}/update`)
+                    .then(this.$router.push('/'))
+            },
+
         fetchStudent() {
-            // id = this.$route.params.id
             axios.get(`/api/students/${this.$route.params.id}`)
                 .then(res => {
                     this.form.name = res.data.name
@@ -73,7 +79,7 @@
                     this.form.parent_email = res.data.parent_email
                     this.form.teacher_id = res.data.teacher_id
                     this.form.bus_number = res.data.bus_number
-                    console.log(this.name)
+                    this.form.id = res.data.id
                 })
         }
     }

@@ -48,12 +48,12 @@
             }
           ],
           // LOGGED USER
-          user: [
-            {
-              name: 'Dashboard',
-              path: '/'
-            }
-          ],
+          // user: [
+          //   {
+          //     name: 'Dashboard',
+          //     path: '/'
+          //   }
+          // ],
           // LOGGED ADMIN
           admin: [
             {
