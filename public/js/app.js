@@ -3020,7 +3020,7 @@ __webpack_require__.r(__webpack_exports__);
         // LOGGED USER
         user: [{
           name: 'Dashboard',
-          path: ''
+          path: '/'
         }],
         // LOGGED ADMIN
         admin: [{
@@ -3138,7 +3138,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     onSubmit: function onSubmit() {
-      this.form.post('/api/students/create');
+      this.form.post('/api/students/create').then(this.$router.push('/'));
     }
   }
 });
@@ -3179,7 +3179,78 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: new Form({
+        name: "",
+        grade: null,
+        parent_email: "",
+        bus_number: null,
+        teacher_id: null
+      })
+    };
+  },
+  mounted: function mounted() {
+    this.fetchStudent();
+  },
+  methods: {
+    fetchStudent: function fetchStudent() {
+      var _this = this;
+
+      // id = this.$route.params.id
+      axios.get("/api/students/".concat(this.$route.params.id)).then(function (res) {
+        _this.form.name = res.data.name;
+        _this.form.grade = res.data.grade;
+        _this.form.parent_email = res.data.parent_email;
+        _this.form.teacher_id = res.data.teacher_id;
+        _this.form.bus_number = res.data.bus_number;
+        console.log(_this.name);
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -3386,7 +3457,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {},
   data: function data() {
     return {
       students: []
@@ -3399,11 +3469,8 @@ __webpack_require__.r(__webpack_exports__);
     fetchStudents: function fetchStudents() {
       var _this = this;
 
-      console.log('fetch students()', this.students);
       axios.get('/api/students').then(function (response) {
-        console.log(_this.students);
         _this.students = response.data;
-        console.log(_this.students);
       }).catch(function (err) {
         return console.log(err);
       });
@@ -40427,7 +40494,10 @@ var render = function() {
         [
           _c(
             "router-link",
-            { staticClass: "btn btn-primary", attrs: { to: "/student/edit" } },
+            {
+              staticClass: "btn btn-primary",
+              attrs: { to: "/student/" + _vm.student.id + "/edit" }
+            },
             [_vm._v("Edit")]
           ),
           _vm._v(" "),
@@ -40435,7 +40505,7 @@ var render = function() {
             "router-link",
             {
               staticClass: "btn btn-primary",
-              attrs: { to: "/student/delete" }
+              attrs: { to: "/student/" + _vm.student.id + "/delete" }
             },
             [_vm._v("Delete")]
           )
@@ -40771,16 +40841,284 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "container" }, [
+      _c("h3", [_vm._v("Add a Student")]),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          attrs: { method: "PATCH", action: "/api/students/edit" },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.onSubmit($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.name,
+                  expression: "form.name"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                required: "",
+                type: "text",
+                name: "name",
+                placeholder: this.form.name
+              },
+              domProps: { value: _vm.form.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "name", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.grade,
+                  expression: "form.grade"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                required: "",
+                type: "number",
+                name: "grade",
+                min: "0",
+                max: "8",
+                placeholder: this.form.grade
+              },
+              domProps: { value: _vm.form.grade },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "grade", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.parent_email,
+                  expression: "form.parent_email"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                required: "",
+                type: "text",
+                name: "parent_email",
+                placeholder: this.form.parent_email
+              },
+              domProps: { value: _vm.form.parent_email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "parent_email", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("h4", [_vm._v("Bus number")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-check form-check-inline" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.bus_number,
+                  expression: "form.bus_number"
+                }
+              ],
+              staticClass: "form-check-input",
+              attrs: {
+                type: "radio",
+                name: "bus_number",
+                id: "inlineRadio1",
+                value: "35"
+              },
+              domProps: {
+                checked: this.form.bus_number === 35,
+                checked: _vm._q(_vm.form.bus_number, "35")
+              },
+              on: {
+                change: function($event) {
+                  _vm.$set(_vm.form, "bus_number", "35")
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "form-check-label",
+                attrs: { for: "inlineRadio1" }
+              },
+              [_vm._v("35")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-check form-check-inline" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.bus_number,
+                  expression: "form.bus_number"
+                }
+              ],
+              staticClass: "form-check-input",
+              attrs: {
+                type: "radio",
+                name: "bus_number",
+                id: "inlineRadio1",
+                value: "36"
+              },
+              domProps: {
+                checked: this.form.bus_number === 36,
+                checked: _vm._q(_vm.form.bus_number, "36")
+              },
+              on: {
+                change: function($event) {
+                  _vm.$set(_vm.form, "bus_number", "36")
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "form-check-label",
+                attrs: { for: "inlineRadio1" }
+              },
+              [_vm._v("36")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-check form-check-inline" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.bus_number,
+                  expression: "form.bus_number"
+                }
+              ],
+              staticClass: "form-check-input",
+              attrs: {
+                type: "radio",
+                name: "bus_number",
+                id: "inlineRadio1",
+                value: "37"
+              },
+              domProps: {
+                checked: this.form.bus_number === 37,
+                checked: _vm._q(_vm.form.bus_number, "37")
+              },
+              on: {
+                change: function($event) {
+                  _vm.$set(_vm.form, "bus_number", "37")
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "form-check-label",
+                attrs: { for: "inlineRadio1" }
+              },
+              [_vm._v("37")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-check form-check-inline" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.bus_number,
+                  expression: "form.bus_number"
+                }
+              ],
+              staticClass: "form-check-input",
+              attrs: {
+                type: "radio",
+                name: "bus_number",
+                id: "inlineRadio1",
+                value: "0"
+              },
+              domProps: {
+                checked: this.form.bus_number === 0,
+                checked: _vm._q(_vm.form.bus_number, "0")
+              },
+              on: {
+                change: function($event) {
+                  _vm.$set(_vm.form, "bus_number", "0")
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "form-check-label",
+                attrs: { for: "inlineRadio1" }
+              },
+              [_vm._v("Parent Pickup")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+            [_vm._v("Submit")]
+          )
+        ]
+      )
+    ])
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("p", [_vm._v("for editing students")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -55554,10 +55892,10 @@ var routes = [{
   path: '/loggedout',
   component: _views_LoggedOut_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
 }, {
-  path: '/student/delete',
+  path: '/student/:id/delete',
   component: _views_DeleteStudent_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
 }, {
-  path: '/student/edit',
+  path: '/student/:id/edit',
   component: _views_EditStudent_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {
   path: '/register',
@@ -55820,8 +56158,6 @@ function () {
   }, {
     key: "onSuccess",
     value: function onSuccess(data) {
-      alert(data.message); // temporary
-
       this.reset();
     }
     /**

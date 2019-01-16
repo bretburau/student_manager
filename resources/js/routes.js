@@ -24,11 +24,11 @@ let routes = [
         component: LoggedOut
     },
     {
-        path: '/student/delete',
+        path: '/student/:id/delete',
         component: DeleteStudent
     },
     {
-        path: '/student/edit',
+        path: '/student/:id/edit',
         component: EditStudent
     },
     {

@@ -51,7 +51,7 @@
           user: [
             {
               name: 'Dashboard',
-              path: ''
+              path: '/'
             }
           ],
           // LOGGED ADMIN

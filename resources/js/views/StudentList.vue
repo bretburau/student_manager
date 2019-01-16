@@ -15,7 +15,6 @@
 
 <script>
     export default {
-        components: { },
         data() {
             return {
                 students: []
@@ -29,11 +28,8 @@
 
         methods: {
             fetchStudents() {
-                console.log('fetch students()', this.students)
                 axios.get('/api/students').then((response) => {
-                    console.log(this.students)
                     this.students = response.data
-                    console.log(this.students)
                 })
                 .catch((err) => console.log(err))
             }

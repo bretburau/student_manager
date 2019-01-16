@@ -15,6 +15,10 @@ Route::view('/', 'layouts.master');
 
 use App\Student;
 
+Route::get('/api/students/{id}', function($id) {
+    return Student::find($id);
+});
+
 Route::get('/api/students', function() {
     return Student::all();
 });

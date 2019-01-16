@@ -26,12 +26,12 @@ class StudentsController extends Controller
 
     public function store()
     {
-        // $id = auth()->id();
+        $id = auth()->id();
         $attributes = $this->validateStudent();
-        // $attributes['teacher_id'] =$id;
+        $attributes['teacher_id'] =$id;
         $attributes['bus_number'] == 0 ? $attributes['riding_bus'] = false : $attributes['riding_bus'] = true;
         $student = Student::create($attributes);
-        return redirect("/students/$student->id");
+        return $student;
     }
 
     public function show(Student $student)

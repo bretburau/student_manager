@@ -58,6 +58,7 @@
         methods: {
             onSubmit() {
                 this.form.post('/api/students/create')
+                    .then(this.$router.push('/'))
             }
         }
     }
