@@ -3167,7 +3167,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     delete: function _delete() {
       axios.delete("/api/students/".concat(this.$route.params.id, "/delete")).then(function (res) {
-        return console.log(res);
+        return console.log(res, "deleted");
       });
     }
   }
@@ -40821,8 +40821,22 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("h4", [_vm._v("Are you sure you want to delete this student?")]),
+    _vm._v(" "),
+    _c(
+      "button",
+      { staticClass: "btn btn-danger", on: { click: this.delete } },
+      [_vm._v("Delete")]
+    )
+  ])
+}
 var staticRenderFns = []
+render._withStripped = true
 
 
 

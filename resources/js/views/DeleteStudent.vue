@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <h4>Are you sure you want to delete this student?</h4>
-        <button v-on:click="this.delete()" class="btn btn-danger">Delete</button>
+        <button v-on:click="this.delete" class="btn btn-danger">Delete</button>
     </div>
 </template>
 
@@ -10,7 +10,7 @@
         methods: {
             delete() {
                 axios.delete(`/api/students/${this.$route.params.id}/delete`)
-                    .then(res => console.log(res))
+                    .then(res => console.log(res, "deleted"))
             }
         }
     }
