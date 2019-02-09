@@ -7,7 +7,7 @@
             <p class="card-text" v-else>Bus number: {{student.bus_number }}</p>
             <p class="card-text">Grade: {{student.grade}}</p>
             <div class="flex">
-                <router-link :to="`/student/` + student.id + `/edit`" class="btn btn-primary">Edit</router-link> <!-- todo template literals?\ -->
+                <router-link :to="`/student/` + student.id + `/edit`" class="btn btn-primary">Edit</router-link> 
                 <router-link :to="`/student/` + student.id + `/delete`" class="btn btn-primary">Delete</router-link>
             </div>
         </div>
