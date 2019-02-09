@@ -32,3 +32,19 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::get('users', 'UserController@index')->middleware('isAdmin');
     Route::get('users/{id}', 'UserController@show')->middleware('isAdminOrSelf');
 });
+
+use App\Student;
+
+Route::get('/students/{id}', function($id) {
+    return Student::find($id);
+});
+
+Route::delete('/students/{id}/delete', 'StudentsController@destroy');
+
+Route::patch('/students/{id}/update', 'StudentsController@update');
+
+Route::get('/students', function() {
+    return Student::all();
+});
+
+Route::post('/students/create', 'StudentsController@store');
