@@ -47,14 +47,6 @@
               path: 'login'
             }
           ],
-          // LOGGED USER
-          // user: [
-          //   {
-          //     name: 'Dashboard',
-          //     path: '/'
-          //   }
-          // ],
-          // LOGGED ADMIN
           admin: [
             {
               name: 'Dashboard',
